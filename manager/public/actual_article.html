@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment & Savings</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+        color: white;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .modal-content {
+            background: #2c3e50;
+            color: white;
+            border-radius: 10px;
+        }
+        .modal-header {
+            border-bottom: 2px solid skyblue;
+        }
+        .modal-title {
+            color: white;
+        }
+        .modal-body a {
+            color: aqua;
+            text-decoration: none;
+        }
+        .modal-body a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+        }
+        .row {
+            margin-top: 20px;
+        }
+        .card {
+            width: 100%; /* Responsive width */
+            max-width: 350px; /* Restricts maximum width */
+            height: 450px; /* Fixed height */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+            border-radius: 10px; /* Smooth rounded corners */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Slight lift effect */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* More depth on hover */
+        }
+
+        .card-body {
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .button {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(52, 152, 219, 0.7)); /* Gradient background */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button:hover {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(52, 152, 219, 0.7)); /* Gradient background */
+}
+
+        .container {
+            max-width: 1200px; /* Ensures a proper width */
+            padding: 20px; /* Adds spacing inside */
+        }
+        #invest {
+             background: transparent; /* Fully transparent */
+            color: black; /* White text for readability */
+        }
+        #invest, #resources, #articles,#tedx h1 {
+    color: white; /* Change this to any color */
+}
+#invest, #resources, #articles,#tedx h5 {
+    color: black; /* Change this to any color */
+}
+
+         #resources, #articles, #tedx {
+            background: transparent;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            min-height: 400px; /* Adjust this value to decrease height */
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(9, 41, 198, 0.7)); /* Gradient background */
+            color : white;
+            height: 100%; /* Ensures equal height */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .fa-3x {
+            font-size: 3rem;
+
+        }
+
+        .container {
+            max-width: 900px; /* Restricts width to keep it centered */
+            margin: auto; /* Centers the container */
+            text-align: center; /* Aligns text inside */
+        }
+        .row {
+            justify-content: center; /* Centers grid elements */
+        }
+
+        .card {
+            margin: auto; /* Centers cards inside columns */
+        }
+
+        /* Updated style for article items */
+        .article-item {
+        display: block;
+        text-decoration: none;
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(51, 1, 64, 0.7));
+        padding: 20px;
+        border-radius: 10px;
+        text-align: left; /* Left-align text */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+        color: white;
+    }
+    
+    .article-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, rgba(51, 1, 64, 0.9), rgba(0, 0, 0, 0.9));
+    }
+    
+    .article-item i {
+        font-size: 35px;
+        color: white;
+        margin-bottom: 12px;
+    }
+
+    .article-item h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 8px;
+    }
+
+    .article-item p {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+        /* Courses Section */
+        #courses {
+    margin-top: 50px;
+    background: transparent;            
+    padding: 25px;
+}
+
+/* Course Item */
+.course-item {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(1, 45, 87, 0.7));
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
+    height: 200px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns content evenly */
+}
+
+/* Hover Effect */
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 0px 15px rgba(1, 122, 122, 0.5);
+}
+
+/* Icons */
+.course-item i {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+/* Course Title */
+.course-item h5 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #f8f9fa;
+    margin-bottom: 10px;
+}
+
+/* Course Description */
+.course-item p {
+    font-size: 0.95rem;
+    color: white;
+    flex-grow: 1; /* Ensures text adjusts within the fixed height */
+}
+
+/* Buttons */
+.course-item .btn-outline-success {
+    border-color: blue;
+    color: white;
+    transition: 0.3s;
+    width: 100%; /* Makes button full width */
+    padding: 8px 0;
+    font-weight: bold;
+}
+
+.course-item .btn-outline-success:hover {
+    background: #0056b3;
+    color: white;
+}
+
+
+        #tedx {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(81, 1, 58, 0.7)); /* Gradient background */
+    border-radius: 25px;
+    padding: 60px 30px;
+    color: white;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Soft shadow with more depth */
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#tedx::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.3), transparent);
+    animation: pulse 6s infinite;
+    opacity: 0.4;
+}
+
+#tedx h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.tedx-card {
+    background: black;
+    border-radius: 15px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px 25px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tedx-card:hover {
+    transform: translateY(-10px); /* Slight lift effect */
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+    color: white;
+}
+
+.tedx-card:hover i {
+    transform: rotate(360deg); /* Spin effect for the icon */
+}
+
+.tedx-card i {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out; /* Smooth animation */
+}
+
+.tedx-card h5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.tedx-card p {
+    color: whitesmoke;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.tedx-card a {
+    background-color: blue;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.tedx-card a:hover {
+    background-color: rgb(114, 19, 95); /* Darker red on hover */
+}
+.tedx-card .btn{
+    background-color: rgba(59,1,47);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0.3;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">SaveMate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#invest">Investment Options</a></li>
+                <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
+                <li class="nav-item"><a class="nav-link" href="#articles">Articles</a></li>
+                <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tedx">TEDx Talks</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5" id="invest">
+        <h1 class="text-center" style="color: white;">Explore Investment Options</h1>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="image-container" id="safeCard">
+                        <img src="safe.jpg" class="card-img-top" alt="Safe Investments">
+                    </div>
+                    <h5 class="text-center mt-2">Safe & Low-Risk Options</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="image-container" id="moderateCard">
+                        <img src="moderate.jpg" class="card-img-top" alt="Moderate Investments">
+                    </div>
+                    <h5 class="text-center mt-2">Moderate-Risk & Growth-Oriented</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-lg">
+                    <div class="image-container" id="highCard">
+                        <img src="high.jpeg" class="card-img-top" alt="High-Risk Investments">
+                    </div>
+                    <h5 class="text-center mt-2">High-Risk, High-Return</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Safe Modal -->
+    <div class="modal fade" id="safeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Safe & Low-Risk Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><a href="https://youtu.be/NvkS7O7yNcQ?si=H5LgavafBuNgAV3O" target="_blank">10 CLEVER PERSONAL FINANCE RULES</a></li>
+                        <li><a href="https://youtu.be/AkMTxMN7res?si=OpwdWTWlrcRLbwLr" target="_blank">FINANCE MASTERCLASS</a></li>
+                        <li><a href="https://youtu.be/1tyhF5oH-pE?si=DZAJn3ypY02P_zJE" target="_blank">POST OFFICE SCHEMES (Telugu) </a></li>
+                        <li><a href="https://youtu.be/vA9-4B2KnqE?si=B6IT_33CfE7Hppkm" target="_blank">POST OFFICE SCHEMES (Hindi) </a></li>
+                        <li><a href="https://youtu.be/U_YiQy-DL9U?si=-WpKD_IPiScrOCg3" target="_blank">FD VS RD VS PPF VS SIP (Hindi) </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Moderate Modal -->
+    <div class="modal fade" id="moderateModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Moderate-Risk & Growth-Oriented</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><a href="https://youtu.be/PbldLCsspgE?si=TlYoQr-3DOJ_jn34" target="_blank">MUTUAL FUNDS (English)</a></li>
+                        <li><a href="https://youtu.be/9UWNdpryusM?si=fq93WWwCyFCuC-vB" target="_blank">HOW TO INVEST IN GOLD (English)</a></li>
+                        <li><a href="https://youtu.be/ivqoBFPVCI0?si=rcsZ-ljZtACl-LIO" target="_blank">GOLD VS ETF VS SGB VS DIGITAL GOLD VS PHYSICAL GOLD (Hindi)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- High Modal -->
+    <div class="modal fade" id="highModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">High-Risk, High-Return</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li><a href="https://youtu.be/HNPbY6fSeo8?si=LWc_gob3BerrDxWm" target="_blank">STOCK MARKET INVESTING FOR BEGINNERS </a></li>
+                        <li><a href="https://youtu.be/OPA_T-uP9ko?si=SQXYl5SCyNWSyaO0" target="_blank">STOCK MARKET AND MUTUAL FUNDS (Telugu)</a></li>
+                        <li><a href="https://youtu.be/4CQzOXbkLqY?si=BNrrVYxXgi7IpXp9" target="_blank">HOW TO START TRADING 2025</a></li>
+                        <li><a href="https://youtu.be/_YVQN6_nkfs?si=ABZxpyl20PDKQ_sA" target="_blank">TRADING FOR BEGINERS</a></li>
+                        <li><a href="https://youtu.be/WsRozXLBAH0?si=RbMhZrJjaRKJxIln" target="_blank">BEST TRADING APP (Hindi)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            // Trigger Safe Modal on hover
+            $('#safeCard').mouseenter(function() {
+                $('#safeModal').modal('show');
+            });
+            
+            // Trigger Moderate Modal on hover
+            $('#moderateCard').mouseenter(function() {
+                $('#moderateModal').modal('show');
+            });
+            
+            // Trigger High Modal on hover
+            $('#highCard').mouseenter(function() {
+                $('#highModal').modal('show');
+            });
+            
+            // Close the modal when mouse leaves
+            $('#safeCard, #moderateCard, #highCard').mouseleave(function() {
+                $('.modal').modal('hide');
+            });
+        });
+    </script>    
+    
+    <style>
+   .image-container:hover {
+    opacity: 0.8; /* Example hover effect */
+}
+
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Resources Section -->
+<div class="container mt-5" id="resources">
+    <h1 class="text-center" style="color: white;">Resources & Learning</h1>
+    <div class="row mt-4">
+        <!-- First Module -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-2 clickable-card" onclick="window.open('https://zerodha.com/varsity/', '_blank');">
+                <i class="fas fa-file-alt fa-2x text-primary mb-2"></i>
+                <div class="card-body text-left">
+                    <h6 class="card-title">Zerodha - Varsity</h6>
+                    <p class="card-text">Explore modules online to get all the basic knowledge about Personal Finance.</p>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Second Module -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-2 clickable-card" onclick="window.location.href='https://groww.in/p';">
+                <i class="fas fa-file-alt fa-2x text-primary mb-2"></i>
+                <div class="card-body text-left">
+                    <h6 class="card-title">Groww</h6>
+                    <p class="card-text">Explore modules online to get all the basic knowledge about Personal Finance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- First Book -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-2 clickable-card" onclick="window.location.href='https://amzn.in/d/7cjkVVh';">
+                <i class="fas fa-book fa-2x text-success mb-2"></i>
+                <div class="card-body text-left">
+                    <h6 class="card-title">The Psychology of Money By Morgan Housel</h6>
+                    <p class="card-text">"Timeless lessons on wealth, greed and happiness."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Book -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-2 clickable-card" onclick="window.location.href='https://amzn.in/d/gR1EI6w';">
+                <i class="fas fa-book fa-2x text-success mb-2"></i>
+                <div class="card-body text-left">
+                    <h6 class="card-title">Rich Dad Poor Dad By Robert T.Kiyosaki</h6>
+                    <p class="card-text">“Rich Dad Poor Dad is a starting point for anyone looking to gain control of their financial future.”</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .clickable-card {
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+    .clickable-card:active {
+        transform: scale(1.05);
+    }
+</style>
+
+
+<!-- Articles Section -->
+<div class="container mt-5" id="articles">
+    <h2 class="text-center text-white">Articles & Case Studies</h2>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <a href="https://www.investopedia.com/articles/trading/05/011705.asp" class="article-item">
+                <i class="fas fa-chart-pie"></i>
+                <h6>Day Trading - Investopedia</h6>
+                <p>Learn the basics of day trading.</p>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="https://tapinvest.in/blog/best-investment-platforms-in-india-2024/" class="article-item">
+                <i class="fas fa-cogs"></i>
+                <h6>Best Trading Platforms</h6>
+                <p>Top trading platforms in India.</p>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="https://www.reddit.com/r/IndiaInvestments/comments/k7v0dg/a_beginners_guide_to_investing_in_the_stock/" class="article-item">
+                <i class="fas fa-bitcoin"></i>
+                <h6>Stock Market & Mutual Funds</h6>
+                <p>Beginner’s guide to investing.</p>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="https://shodhgangotri.inflibnet.ac.in/bitstream/20.500.14146/10125/1/manju.pdf" class="article-item">
+                <i class="fas fa-wallet"></i>
+                <h6>Personal Financial Planning</h6>
+                <p>Study on financial planning.</p>
+            </a>
+        </div>
+        <div class="col-md-3 mt-3">
+            <a href="https://www.iepf.gov.in/IEPF/pdf/First_Steps_to_Investing_A_Beginners_Guide_Prithvi_Haldea.pdf" class="article-item">
+                <i class="fas fa-piggy-bank"></i>
+                <h6>First Steps to Investing</h6>
+                <p>Smart investing principles.</p>
+            </a>
+        </div>
+        <div class="col-md-3 mt-3">
+            <a href="https://ijcrt.org/papers/IJCRT2210090.pdf" class="article-item">
+                <i class="fas fa-coins"></i>
+                <h6>Personal Finance Guide</h6>
+                <p>Budgeting & emergency funds.</p>
+            </a>
+        </div>
+        <div class="col-md-3 mt-3">
+            <a href="https://ncfe.org.in/wp-content/uploads/2023/12/Personal-Finance-for-School-Students.pdf" class="article-item">
+                <i class="fas fa-user-graduate"></i>
+                <h6>Personal Finance for Students</h6>
+                <p>Financial literacy for students.</p>
+            </a>
+        </div>
+        <div class="col-md-3 mt-3">
+            <a href="https://www.investopedia.com/tech/most-important-cryptocurrencies-other-than-bitcoin/" class="article-item">
+                <i class="fas fa-coins"></i>
+                <h6>10 Important Cryptocurrencies</h6>
+                <p>Beyond Bitcoin: Key cryptos.</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Courses Section -->
+<div class="container mt-5" id="courses">
+    <h1 class="text-center" style="color: white;">Courses & Certifications</h1>
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="course-item small-card text-left">
+                <i class="fas fa-laptop-code"></i>
+                <h6>Personal Finance 101: Everything You Need to Know</h6>
+                <p class="text-left">BY UDEMY.</p>
+                <a href="https://www.udemy.com/course/personal-finance-101/" class="btn btn-outline-success">Enroll Now</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="course-item small-card text-left">
+                <i class="fas fa-chart-line"></i>
+                <h6>Financial Planning for Young Adults</h6>
+                <p class="text-left">BY COURSERA</p>
+                <a href="https://www.coursera.org/learn/financial-planning" class="btn btn-outline-success">Enroll Now</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="course-item small-card text-left">
+                <i class="fas fa-university"></i>
+                <h6>Bitcoin and Cryptocurrency Technologies</h6>
+                <p class="text-left">BY COURSERA</p>
+                <a href="https://www.coursera.org/learn/cryptocurrency" class="btn btn-outline-success">Enroll Now</a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="course-item small-card text-left">
+                <i class="fas fa-money-bill-wave"></i>
+                <h6>Stock Market Courses</h6>
+                <p class="text-left">BY AngelOne</p>
+                <a href="https://www.angelone.in/smart-money/stock-market-courses" class="btn btn-outline-success">Enroll Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .small-card {
+        padding: 10px;
+        font-size: 0.9rem;
+        text-align: left;
+    }
+</style>
+
+  <!-- TEDx Section -->
+  <div class="container mt-5" id="tedx">
+    <h1 class="text-left mb-4">TEDx Talks & Financial Facts</h1>
+
+    <!-- Interesting Financial Facts Carousel -->
+    <div class="row mb-3">
+        <div class="col-12">
+            <div id="factCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="text-center">
+                            <i class="fas fa-lightbulb fa-2x text-primary"></i>
+                            <h6 class="mt-2" style="color: white;">Did you know?</h6>
+                            <p class="small">Millionaires have 7 income streams. Diversify to grow!</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center">
+                            <i class="fas fa-dollar-sign fa-2x text-success"></i>
+                            <h6 class="mt-2" style="color:white;">Did you know?</h6>
+                            <p class="small">Stock markets historically yield ~7% annually.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line fa-2x text-warning"></i>
+                            <h6 class="mt-2" style="color: white;">Did you know?</h6>
+                            <p class="small">Successful people spend 15 min/day on finance.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#factCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next" href="#factCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <a href="https://youtu.be/A7r2vCxa3pI?si=-LExVGiGYZadmJh2" class="tedx-card-link">
+                <div class="tedx-card text-left small-card">
+                    <i class="fas fa-rocket"></i>
+                    <h6 style="color: white">Women & Financial Independence</h6>
+                    <p class="small text-left">Rachana discusses women's role in finance.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="https://youtu.be/7EZKYzQgZM8?si=fhW61GHUusVvtmBt" class="tedx-card-link">
+                <div class="tedx-card text-left small-card">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h6 style="color: white">5 Ways Women Maximize Finance</h6>
+                    <p class="small text-left">Women are set to inherit massive wealth.</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a href="https://youtu.be/FXjHwQ6J_yI?si=htDEltOxECRIuxL_" class="tedx-card-link">
+                <div class="tedx-card text-left small-card">
+                    <i class="fas fa-piggy-bank"></i>
+                    <h6 style="color: white">Personal Finance 101</h6>
+                    <p class="small text-left">Thomas Kehl simplifies financial concepts.</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $('#factCarousel').carousel({ interval: 5000 });
+        });
+    </script>
+    <script>
+        document.body.style.backgroundImage = "url('bg.jpg')";
+    </script>
+    
+    <style>
+        .small-card {
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+    
+
+    <style>
+        body {
+            background-image: url('bg.jpg'); /* Adjust the path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Keeps background fixed */
+            min-height: 100vh; /* Ensures full-screen coverage */
+        }
+    
+        .container {
+            position: relative;
+            background: rgba(255, 255, 255, 0.9); /* Light background for readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+    
+</body>
+</html>
